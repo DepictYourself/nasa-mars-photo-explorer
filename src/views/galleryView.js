@@ -12,7 +12,7 @@ class GalleryView extends View {
     const markup = `
         ${this._data.pictures.map(pic => `
           <figure class="gallery__item">
-            <img src="${pic.img_src}" alt="Mars photo taken by ${pic.rover.name}">
+            <img id=${pic.id} src="${pic.img_src}" alt="Mars photo taken by ${pic.rover.name}">
             <figcaption>
               <strong>${pic.rover.name}</strong> | ${pic.camera.full_name}
               <small>${pic.earth_date}</small>
@@ -20,8 +20,15 @@ class GalleryView extends View {
           </figure>
         `).join('')}
       `
-    console.log("galleryView markup: ", markup);
     return markup;
+  }
+
+  addEventHandler(handler) {
+    const galleryImages = document.querySelectorAll('.gallery__item img');
+    console.log("galleryView -> addEventHandler() ", galleryImages);
+    galleryImages.forEach(img => {
+      img.addEventListener("click", handler);
+    })
   }
 }
 

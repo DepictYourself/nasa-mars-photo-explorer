@@ -1,6 +1,5 @@
 import { API_KEY, API_URL } from './config';
 import { getJSON } from './helpers';
-import headerView from './views/headerView';
 
 export const state = {
   main: {
@@ -24,15 +23,12 @@ export const state = {
   },
   gallery: {
     count: 0,
-    pictures: [],
-    page: 1
+    pictures: []
   }
 }
 
 export const loadPictures = async function (filters) {
   try {
-    console.log(filters);
-
     const requests = [];
     if (!filters.rovers || !filters.cameras) return;
 
@@ -43,8 +39,6 @@ export const loadPictures = async function (filters) {
       filters.from,
       filters.to
     );
-    console.log("dates: ", dates);
-    console.log("combinations: ", combinations);
 
     for (const {rover, camera, date} of combinations) {
       const url = new URL(
@@ -54,7 +48,6 @@ export const loadPictures = async function (filters) {
       url.searchParams.append("camera", camera);
       url.searchParams.append("page", 1);
       url.searchParams.append("api_key", API_KEY);
-      console.log(url.toString());
       
       requests.push(getJSON(url.toString()))
     }
@@ -62,7 +55,6 @@ export const loadPictures = async function (filters) {
     const responses = await Promise.all(requests);
     const allPhotos = responses.flatMap(res => res.photos);
 
-    console.log("loaded photos: ", allPhotos);
     state.gallery.count = allPhotos.length;
     state.gallery.pictures = allPhotos;
   } catch (error) {

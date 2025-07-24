@@ -1,9 +1,15 @@
 .gallery {
   display: grid;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   color: var(--color-grey-dark-1);
   gap: 2rem;
   padding: 2rem;
+}
+
+.gallery__item {
+  cursor: pointer;
 }
 
 .photo-card {
