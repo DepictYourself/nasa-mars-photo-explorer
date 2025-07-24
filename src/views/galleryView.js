@@ -25,9 +25,11 @@ class GalleryView extends View {
 
   addEventHandler(handler) {
     const galleryImages = document.querySelectorAll('.gallery__item img');
-    console.log("galleryView -> addEventHandler() ", galleryImages);
     galleryImages.forEach(img => {
-      img.addEventListener("click", handler);
+      img.addEventListener("click", function(e) {
+        const clickedImgId = e.target.attributes["id"].value;
+        handler(clickedImgId);
+      });
     })
   }
 }

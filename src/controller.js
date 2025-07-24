@@ -23,12 +23,10 @@ const controlImageGallery = async function() {
   }
 }
 
-const controlModal = function(event) {
+const controlModal = function(imgId) {
   try {
-    console.log("image clicked", event);
-    const clickedImgId = event.target.attributes["id"].value 
     const data = model.state.gallery.pictures.find(
-      pic => pic.id == clickedImgId
+      pic => pic.id == imgId
     );
     modalView.open(data);
   } catch (error) {
