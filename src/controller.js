@@ -1,5 +1,5 @@
 import * as model from './model';
-import galeryView from './views/galeryView';
+import galleryView from './views/galleryView';
 import headerView from './views/headerView';
 import mainView from "./views/mainView";
 
@@ -12,8 +12,10 @@ const controlMain = function() {
 
 const controlImageGalery = async function() {
   try {
-    galeryView.renderLoading();
+    galleryView.renderLoading();
     const filters = headerView.getFilters();
+    await model.loadPictures(filters);
+    galleryView.render(model.state.gallery);
   } catch (error) {
     console.log(error);
   }

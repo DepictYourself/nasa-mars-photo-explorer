@@ -18,7 +18,7 @@ export default class View {
 
   renderLoading() {
     this._clear();
-    this._parentElement.insertAdjacentHTML('afterbegin', "<p>Loading...</p>");
+    this._parentElement.insertAdjacentHTML('afterbegin', "<h2>Loading...</h2>");
   }
 
 
