@@ -49,3 +49,24 @@ VITE_API_KEY="****************************************"
 npm install
 npm start
 ```
+
+## Architecture Overview - MVC in Vanilla JavaScript
+
+This project follows a Model-View-Controller pattern, inspired by modern frontend practices.
+This lightweight MVC structure helps separate responsibilities.
+
+![MVC Diagramm](mvc.png)
+
+- Model (model.js)
+  1. Manages application state
+  2. Handles data fetching
+  3. Normalizes API data for views.
+
+- View (View.js & subclasses GalleryView, ModalView, etc...)
+  1. Each UI component has it's own View class.
+  It seemd appropriate for views to be encapsulated as classes.
+  2. Views handle DOM rendering, markup generation using template literals, UI event listeners.
+
+- Controller (controller.js)
+  1. Acts as the central hub.
+  2. Get data to update state, initiates re-render of view.
