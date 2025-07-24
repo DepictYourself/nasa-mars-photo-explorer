@@ -1,3 +1,4 @@
-import './style.css'
+import './css/main.css'
+import { init} from './controller';
 
-document.querySelector('#app').innerHTML = `Enable JavaScript`
+init();

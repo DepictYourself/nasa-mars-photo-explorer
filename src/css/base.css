@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Open+Sans:wght@300&family=Orbitron:wght@400..900&display=swap');
+
+:root {
+  --color-primary: rgb(50, 40, 90);
+  --color-secondary: rgb(0, 200, 200);
+  --color-grey-light-1: rgb(240, 240, 240);
+  --color-grey-light-2: rgb(200, 200, 200);
+  --color-grey-light-3: rgb(160, 160, 160);
+  --color-grey-dark-1: rgb(40, 40, 40);
+  --color-grey-dark-2: rgb(85, 85, 85);
+
+  --gradient: linear-gradient(to right bottom, rgb(20, 20, 30), rgb(50, 40, 90), rgb(0, 0, 0));
+
+  --bp-large: 78.15em;  /*1250px*/
+  --bp-medium: 61.25em; /*980px*/
+  --bp-small: 37.5em; /*600px*/
+  --bp-smallest: 31.25em /*500px*/
+}
+
+html {
+  font-size: 62.5%;
+
+}
+
+@media only screen and (max-width: 980px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: "Orbitron", sans-serif;
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+  color: var(--color-grey-light-1);
+  background: 
+    radial-gradient(circle at top left, rgba(0,200,200,0.2), transparent 50%),
+    linear-gradient(135deg, rgb(20, 20, 30), rgb(50, 40, 90), rgb(0, 0, 0));
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 4rem;
+  height: 4.6rem;
+  display: inline;
+}
+
+.container {
+  max-width: 120rem;
+  min-height: 117rem;
+  margin: 4vw auto;
+  background-color: #fff;
+  color: var(--color-grey-light-1);
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 2rem 6rem 0.5rem rgba(var(--color-grey-dark-1), 0.2);
+
+  display: grid;
+  grid-template-rows: 12rem minmax(100rem, auto);
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'head'
+    'gallery';
+}
+
+@media only screen and (max-width: 1250px) {
+  .container {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .container {
+    grid-template-rows: auto minmax(100rem, auto);
+  }
+}
